@@ -11,6 +11,7 @@
     "react-dom": "^15.4.2",
     "react-input-range": "^1.0.2"
   },
+  "homepage": "http://bertrand.boustany.pro/miniclimber-editor",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
