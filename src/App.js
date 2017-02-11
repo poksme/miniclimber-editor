@@ -3,6 +3,7 @@ import Climby from './shapes/Climby.js';
 import InputRange from 'react-input-range';
 import { SketchPicker } from 'react-color';
 import 'react-input-range/lib/css/index.css';
+import './ReactInputRangeOverrides.css';
 import './App.css';
 
 class App extends Component {
