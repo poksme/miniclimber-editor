@@ -6,9 +6,11 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "decimal.js": "^7.1.1",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
     "react-color": "^2.11.1",
     "react-dom": "^15.4.2",
     "react-input-range": "^1.0.2"

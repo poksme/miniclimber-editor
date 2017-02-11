@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Climby from './shapes/Climby.js';
 import InputRange from 'react-input-range';
-import { SketchPicker } from 'react-color';
+import { GithubPicker } from 'react-color';
+import { COLOR_LIST } from './constants';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'react-input-range/lib/css/index.css';
 import './ReactInputRangeOverrides.css';
 import './App.css';
@@ -20,60 +24,80 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div className="ColorPicker">
-          <h2>Primary</h2>
-          <SketchPicker
-            color={ this.state.primaryColor }
-            onChange={({ hex }) => this.setState({ primaryColor: hex }) }
-          />
-        </div>
-        <form className="Controls">
-          <div className="Range">
-            <h2>Size</h2>
-            <InputRange
-              minValue={10}
-              maxValue={500}
-              value={this.state.size}
-              onChange={size => this.setState({ size })}
+      <Grid className="App">
+        <Row>
+          <Col xs={12} sm={4} className="Display">
+            <Climby
+              size={this.state.size}
+              chubbiness={this.state.chubbiness}
+              rotation={this.state.rotation}
+              primaryColor={this.state.primaryColor}
+              secondaryColor={this.state.secondaryColor}
             />
-          </div>
-          <div className="Range">
-            <h2>Chubbiness</h2>
-            <InputRange
-              minValue={5}
-              maxValue={15}
-              value={this.state.chubbiness}
-              onChange={chubbiness => this.setState({ chubbiness })}
-            />
-          </div>
-          <div className="Range">
-            <h2>Rotation</h2>
-            <InputRange
-              minValue={0}
-              maxValue={360}
-              value={this.state.rotation}
-              onChange={rotation => this.setState({ rotation })}
-            />
-          </div>
-        </form>
-        <div className="ColorPicker">
-          <h2>Secondary</h2>
-          <SketchPicker
-            color={ this.state.secondaryColor }
-            onChange={({ hex }) => this.setState({ secondaryColor: hex }) }
-          />
-        </div>
-        <div className="Display">
-          <Climby
-            size={this.state.size}
-            chubbiness={this.state.chubbiness}
-            rotation={this.state.rotation}
-            primaryColor={this.state.primaryColor}
-            secondaryColor={this.state.secondaryColor}
-          />
-        </div>
-      </div>
+          </Col>
+          <Col xs={12} sm={8} className="Controls">
+            <Row>
+              <Col xs={12} lg={6}>
+              <div className="ColorPicker">
+                <h2>Primary</h2>
+                <GithubPicker
+                  colors={COLOR_LIST}
+                  width={262}
+                  triangle="hide"
+                  color={this.state.primaryColor}
+                  onChange={({ hex }) => this.setState({ primaryColor: hex }) }
+                />
+              </div>
+            </Col>
+              <Col xs={12} lg={6}>
+              <div className="ColorPicker">
+                <h2>Secondary</h2>
+                <GithubPicker
+                  colors={COLOR_LIST}
+                  width={262}
+                  triangle="hide"
+                  color={this.state.secondaryColor}
+                  onChange={({ hex }) => this.setState({ secondaryColor: hex })}
+                />
+              </div>
+            </Col>
+              <Col xs={12} lg={6}>
+              <div className="Range">
+                <h2>Size</h2>
+                <InputRange
+                  minValue={10}
+                  maxValue={250}
+                  value={this.state.size}
+                  onChange={size => this.setState({ size })}
+                />
+              </div>
+            </Col>
+              <Col xs={12} lg={6}>
+              <div className="Range">
+                <h2>Chubbiness</h2>
+                <InputRange
+                  minValue={5}
+                  maxValue={15}
+                  value={this.state.chubbiness}
+                  onChange={chubbiness => this.setState({ chubbiness })}
+                />
+              </div>
+            </Col>
+              <Col xs={12}>
+              <div className="Range">
+                <h2>Rotation</h2>
+                <InputRange
+                  minValue={0}
+                  maxValue={360}
+                  value={this.state.rotation}
+                  onChange={rotation => this.setState({ rotation })}
+                />
+              </div>
+            </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

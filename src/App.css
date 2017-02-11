@@ -2,17 +2,26 @@
   text-align: center;
 }
 
+.Display {
+  padding: 40px;
+}
+
 .Controls {
   display: inline-block;
-  width: 200px;
   margin-bottom: 50px;
 }
 
 .ColorPicker {
   display: inline-block;
-  margin: 0px 50px;
+  margin: 0px 0px;
 }
 
 .Range {
-  height: 125px;
+  height: 80px;
+  padding: 0 20px;
+}
+
+.input-range {
+  max-width: 250px;
+  display: inline-block;
 }

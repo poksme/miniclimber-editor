@@ -1,6 +1,6 @@
 import fp from 'lodash/fp';
 import Decimal from 'decimal.js';
-import { PI } from './constants';
+import { PI } from '../constants';
 
 export default corners =>
   (centerX, centerY, radius) =>
