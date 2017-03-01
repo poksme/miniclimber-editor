@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import CustomPropTypes from '../proptypes';
 import RegularPolygon from '../geometry/RegularPolygon';
 
-export default ({ size, corners, rotation, primaryColor, strokeWidth }) => {
+const Polygon = ({ size, corners, rotation, primaryColor, strokeWidth }) => {
   const regularPolygon = new RegularPolygon(corners);
   return (
     <svg
@@ -22,4 +23,14 @@ export default ({ size, corners, rotation, primaryColor, strokeWidth }) => {
       </g>
     </svg>
   );
-}
+};
+
+Polygon.propTypes = {
+  size: CustomPropTypes.number.min(10).isRequired,
+  corners: CustomPropTypes.number.min(3).isRequired, // minimum triangle
+  rotation: CustomPropTypes.number.range(0, 360).isRequired,
+  primaryColor: PropTypes.string.isRequired,
+  strokeWidth: CustomPropTypes.number.min(1).isRequired,
+};
+
+export default Polygon;

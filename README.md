@@ -1,1 +1,1 @@
-# miniclimber-editor
+# Miniclimber Editor

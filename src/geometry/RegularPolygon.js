@@ -1,17 +1,19 @@
-import fp from 'lodash/fp';
+import flow from 'lodash/fp/flow';
+import times from 'lodash/fp/times';
+import join from 'lodash/fp/join';
 import Decimal from 'decimal.js';
 import { PI } from '../constants';
 
 export default corners =>
   (centerX, centerY, radius) =>
-    fp.flow(
-      fp.times((iterations) => {
+    flow(
+      times((iterations) => {
         const theta = PI.div(Decimal(corners).div(2)).mul(iterations);
         const pointX = Decimal(radius).mul(Decimal.sin(theta)).plus(centerX);
         const pointY = Decimal(radius).mul(Decimal.cos(theta)).plus(centerY);
         return `${pointX},${pointY}`;
       }),
-      fp.join(' ')
+      join(' ')
     )(corners);
 
 // This curried function can be used to create regular polygon svg coordinates
